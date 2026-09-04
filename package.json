@@ -1,0 +1,51 @@
+{
+  "name": "snowflake-nanoid",
+  "version": "1.0.0",
+  "description": "Lock-free-style Snowflake ID generator with alphanumeric url safe encoding for unique, time-ordered short codes.",
+  "keywords": [
+    "snowflake",
+    "unique-id",
+    "nanoid",
+    "time ordered",
+    "id-generator",
+    "base62",
+    "alphanumeric",
+    "short-code",
+    "distributed-id",
+    "sortable"
+  ],
+  "license": "MIT",
+  "author": "Shahid",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run test && npm run build"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.1",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^5.0.0"
+  }
+}
