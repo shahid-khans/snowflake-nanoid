@@ -81,15 +81,12 @@ describe("SnowflakeNanoId", () => {
   });
 
   it("codes decode back to the original id 5", () => {
-    const gen3 = new SnowflakeNanoId({ nodeId: 3 });
-    const gen0 = new SnowflakeNanoId({ nodeId: 0 });
-    // newFunction(gen3, 3);
-    // newFunction(gen0, 0);
     newFunction(defaultGenerator, 1);
-    function newFunction(gen: SnowflakeNanoId, nodeId: number) {
+    function newFunction(gen: SnowflakeNanoId, _nodeId: number) {
       for (let i = 0; i < 10; i++) {
         const id = gen.nextId();
         console.log("i =", i, "Original ID:", id);
+        console.log("i =", i, "Node ID:", _nodeId);
         console.log("Encoded ID:", encode(id));
         console.log("Decoded ID:", decode(encode(id)));
         const { timestampMs, nodeId, sequence } = gen.unpack(id);
