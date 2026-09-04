@@ -3,6 +3,7 @@ node_modules/
 
 # Build Output
 dist/
+snowflake-nanoid-*.tgz
 
 # Logs
 npm-debug.log*
